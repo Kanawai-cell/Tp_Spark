@@ -1,0 +1,55 @@
+docker exec -it --user root <dockerId> /bin/bash
+
+il faut que ça soit déja en service
+
+docker exec -it --user root tweet_reader /bin/bash
+
+
+
+apt install curl
+curl -O https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
+tar xvf spark-*
+mv spark-3.2.1-bin-hadoop3.2 /opt/spark
+rm spark-*
+
+echo "export SPARK_HOME=/opt/spark" >> ~/.profile
+echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" >> ~/.profile
+echo "export PYSPARK_PYTHON=/usr/bin/python3" >> ~/.profile
+
+pip install pyspark
+pip install findspark
+
+/opt/spark/sbin/start-master.sh
+
+
+apt-get install openjdk-17-jdk
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+
+nano ~/.profile
+
+. ~/.profile
+
+ps -aux | grep spark
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
